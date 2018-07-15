@@ -14,14 +14,14 @@ $consumeCallback = function (AMQPMessage $msg) {
         $xDeath = current($nativeData)[0]['count'];
 
         if ($xDeath >= 10) {
-            file_put_contents('failed_payload.log', $msg->body . PHP_EOL, FILE_APPEND);
+            file_put_contents('var/log/failed_payload.log', $msg->body . PHP_EOL, FILE_APPEND);
             $delivery_info['channel']->basic_ack($delivery_info['delivery_tag']);
 
             return;
         }
     }
 
-    $delivery_info['channel']->basic_nack($delivery_info['delivery_tag'], false, false);
+    $delivery_info['channel']->basic_reject($delivery_info['delivery_tag'], false);
 };
 
 $channel->basic_consume(
