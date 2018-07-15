@@ -1,0 +1,19 @@
+version: '2'
+
+services:
+    rabbitmq:
+        build: docker/rabbitmq
+        environment:
+            - RABBITMQ_DEFAULT_USER
+            - RABBITMQ_DEFAULT_PASS
+            - RABBITMQ_ENABLED_PLUGINS
+            - RABBITMQ_LOG_LEVEL
+        ports:
+            - 5672:5672
+            - 8090:15672
+
+    php:
+        build: docker/php
+        tty: true
+        volumes:
+            - .:/www

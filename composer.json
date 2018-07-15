@@ -1,0 +1,19 @@
+{
+  "name": "andreyors/rmq-dlx-consumer",
+  "description": "Workshop on RabbitMQ DeadLetter Consumer",
+  "license": "MIT",
+  "require": {
+    "andreyors/dsn": "^0.2.0",
+    "php-amqplib/php-amqplib": "^2.7"
+  },
+  "require-dev": {
+    "symfony/dotenv": "^4.1",
+    "symfony/var-dumper": "^4.1"
+  },
+  "config": {
+    "preferred-install": {
+      "*": "dist"
+    },
+    "sort-packages": true
+  }
+}

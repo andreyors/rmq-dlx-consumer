@@ -1,0 +1,9 @@
+.DS_Store
+
+.idea/
+
+.env
+
+var/
+vendor/
+!var/log/.gitkeep
